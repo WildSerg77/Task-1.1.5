@@ -1,3 +1,9 @@
 
-_
-java:S2094"BRemove this empty class, write its code or make it an "interface".(×¼­Æ8›Ú™ö…2
+}
+java:S1118":Add a private constructor to hide the implicit public one.(×¼­Æ8àñ˜ü„2J$8c70226e-2fa1-4258-91e5-2a46974ff23d
+~	java:S125"<This block of commented-out lines of code should be removed.(‘ðˆù8Ðíšü„2J$5361a358-2bfc-4902-b36f-b99a1299795c
+ƒ	java:S125"<This block of commented-out lines of code should be removed.(‰Ä’Úÿÿÿÿÿ8ïÓíû„2J$4a009546-862a-4a72-be1d-48887590bebb
+~
+java:S6437"6Revoke and change this password, as it is compromised.(¦ÀËëùÿÿÿÿ8ì¸³û„2J$ef94a3da-d5de-4185-98f1-cae258b0ded2
+m	java:S106"+Replace this use of System.out by a logger.(˜ð†ÿ8ó¸³û„2J$25457ec6-e93c-4969-b05e-f92c10a9e94d
+m	java:S106"+Replace this use of System.out by a logger.(Žª¹8ô¸³û„2J$abfba52f-0d6a-4d77-b9ca-973c2b5ddc6e
