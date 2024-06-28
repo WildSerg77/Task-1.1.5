@@ -6,8 +6,8 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserDaoJDBCImpl implements UserDao {
-    Connection conn = Util.getConnection();
+//public class UserDaoJDBCImpl implements UserDao {
+/*    Connection conn = Util.getConnection();
     public UserDaoJDBCImpl() {
 
     }
@@ -102,4 +102,4 @@ public class UserDaoJDBCImpl implements UserDao {
         }
 
     }
-}
+} */
