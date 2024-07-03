@@ -80,24 +80,37 @@ public class UserDaoHibernateImpl implements UserDao {
 
     @Override
     public List<User> getAllUsers() {
-        Session session = sessionFactory.openSession();
-        session.beginTransaction();
-        List<User> users = session.createCriteria(User.class).list();
-        session.getTransaction().commit();
-        session.close();
-        for (User user : users) {
-            System.out.println(user.toString());
-        }
-        return users;
-        // In this example, we return null as Hibernate does not provide a direct way to retrieve all entities from the database
+        Transaction transaction = null;
+        try (Session session = sessionFactory.openSession()) {
+            transaction = session.beginTransaction();
+            List<User> users = session.createCriteria(User.class).list();
+            transaction.commit();
+            for (User user : users) {
+                System.out.println(user.toString());
+            }
+            return users;
+        } catch (Exception e) {
+            if (transaction!= null) {
+                transaction.rollback();
+            }
+            System.err.println("Ошибка при получении списка всех пользователей: " + e.getMessage());
+            return null;
+         }
     }
 
     @Override
     public void cleanUsersTable() {
-        Session session = sessionFactory.openSession();
-        session.beginTransaction();
-        session.createSQLQuery("TRUNCATE users").executeUpdate();
-        session.getTransaction().commit();
-        session.close();
+        Transaction transaction = null;
+        try (Session session = sessionFactory.openSession()) {
+            transaction = session.beginTransaction();
+            session.createSQLQuery("TRUNCATE users").executeUpdate();
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction!= null) {
+                transaction.rollback();
+            }
+            System.err.println("Ошибка при очистке таблицы: " + e.getMessage());
+        }
+
     }
 }
